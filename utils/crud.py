@@ -19,6 +19,7 @@ async def get_user_by_email(email: str):
 
 async def get_user_by_username(username: str):
  async with engine.connect() as conn:
+  print('test123')
   query = select(models.user).where(username == models.user.c.username)
   hasil = await conn.execute(query)
   return hasil.fetchone()
